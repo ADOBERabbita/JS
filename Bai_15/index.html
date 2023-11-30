@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Inline - viết trực tiếp trong thẻ HTML(ko khuyến khích) -->
+    <!-- <button onclick="alert('Hello World!')">
+        Click Me
+    </button> -->
+    
+    <!-- Internal - viế trong file HTML hiện tại(ko khuyến khích) -->
+    <!-- <button>
+        Click Here
+    </button>
+    <script>
+        var button = document.querySelector("button")
+        button.onclick = function() {
+            alert("Hello World!")
+        }
+    </script> -->
+    
+    <!-- External - nhứng file js vào trang HTML(khuyến khích) -->
+    <button>
+        Click Here
+    </button>
+
+<script src=".//script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body>
+    <!-- Khái niệm -->
+    1. DOM là gì? 
+    - DOM (Document Object Model): là mô hình các đối tượng tài liệu HTML 
+    - Ta có thể truy xuất đến các thẻ HTML 1 cách dễ dàng 
+    - Gồm 3 thành phần: Element, Attribute, Text 
+    <h1>Nội dung thẻ h1</h1>
+    <a href="#">Đi đến Facebook</a> 
+    
+    2. Nhiệm vụ của DOM 
+    - Cho phép truy xuất đến các thẻ html 
+    - Thay đổi các thuộc tính của thẻ html 
+    - Thay đổi css của các thẻ html 
+    - Tạo, xóa, thêm các thẻ html 
+    
+    3. Các loại DOM trong Javascript 
+    - DOM document: có nhiệm vụ lưu trữ toàn bộ các thành phần trong tài liệu của website (Ví dụ bên trên) 
+    - DOM element: có nhiệm vụ truy xuất tới thẻ HTML nào đó thông qua các thuộc tính như tên class, id, name của thẻ HTML 
+    - DOM HTML: có nhiệm vụ thay đổi giá trị nội dung và giá trị thuộc tính của các thẻ HTML 
+    - DOM CSS: có nhiệm vụ thay đổi các định dạng CSS của thẻ HTML 
+    - DOM Event: có nhiệm vụ gán các sự kiện như onclick(), onload() vào các thẻ HTML 
+    - DOM Listener: có nhiệm vụ lắng nghe các sự kiện tác động lên thẻ HTML đó 
+    - DOM Navigation: dùng để quản lý, thao tác với các thẻ HTML, thể hiện mối quan hệ cha - con của các thẻ HTML 
+    - DOM Nodes: có nhiệm vụ thao tác với HTML thông qua đối tượng (Object) 
+    <!-- End khái niệm -->
+
+    <!-- DOM Element -->
+    1. Sử dụng getElementByld để tìm theo id 
+    - Để truy xuất tới 1 thẻ HTML theo ID ta sử dụng cú pháp: 
+        <!-- var element = document.getElementByld('idName'); -->
+        
+    <div class="light" id="box">Nội dung thẻ div</div>
+
+    <ul id="menu">
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+        <li>Mục 3</li>
+    </ul>
+
+    <style>
+        .light {
+            background: lightblue;
+        }
+        .dark {
+            background: darkblue;
+            color: white;
+        }
+        .test-2 {
+            color: blue;
+        }
+    </style>
+
+    <script>
+        // const box = document.getElementById("box");
+        // box.classList.add("dark");
+        // console.log(box);
+
+        // const menu = document.getElementById("menu");
+        // console.log(menu);
+    </script>
+
+    2. Sử dụng getElementsByTagName để tìm theo tên thẻ html 
+    - Tên thẻ HTML chính là tên các thẻ như p, a, div, ... 
+    - Và ta sẽ truy xuất tới nó bằng cú pháp sau: 
+        <!-- var element = document.getElementsByTagName('tagName'); -->
+    - Kết quả sẽ trả về 1 mảng các object. 
+
+    <h2>Thẻ h2 01</h2>
+    <h2>Thẻ h2 02</h2>
+    <h2>Thẻ h2 03</h2>
+    <h2>Thẻ h2 04</h2>
+    <h2>Thẻ h2 05</h2>
+
+    <script>
+        // const lishH2 = document.getElementsByTagName("h2")
+        // console.log(lishH2);
+        // console.log(lishH2[3]);
+    </script>
+
+    3. Sử dụng getElementsByClassName để tìm theo tên class 
+    - Để tìm các thẻ HTML có class nào đó thì ta dùng cú pháp sau:
+	    <!-- var element = document.getElementsByClassName('className'); -->
+    
+    <h3 class="test">Thẻ 01</h3>
+    <h4 class="test">Thẻ 02</h4>
+    <h5 class="test">Thẻ 03</h5>
+    <h6 class="test">Thẻ 04</h6>
+    <h5 class="test">Thẻ 05</h5>
+
+    <script>
+        // const lishTest = document.getElementsByClassName("test");
+        // [...lishTest].forEach(item => {
+        //     console.log(item);
+        //     item.classList.add("test-2"); //Thêm class
+        //     item.classList.remove("test"); //Xóa class
+        // });
+        // console.log(lishTest);
+    </script>
+
+    4. Sử dụng querySelector để tìm theo CSS selecto 
+    - Để tìm một thẻ HTML theo bộ chọn CSS thì ta dùng cú pháp sau:
+	    <!-- var element = document.querySelector('selector'); -->
+
+    <style>
+        .box-1 .box-2 h2 .link {
+            background-color: yellow;
+        }
+        .box-1 .box-2 h2 .link .active {
+            background-color: orange;
+        }
+    </style>
+
+    <div class="box-1">
+        <div class="box-2">
+            <h2>
+                <a href="#" class="link">Nội dung thẻ a</a>
+            </h2>
+            <h2>
+                <a href="#" class="link">Nội dung thẻ a</a>
+            </h2>
+        </div>
+    </div>
+
+    <script>
+        // const element = document.querySelector(".box-1 .box-2 h2 .link");
+        // element.classList.add("active");
+        // console.log(element);
+
+        // const elements = document.querySelectorAll(".box-1 .box-2 h2 .link");
+        // [...elements].forEach(item => {
+        //     item.classList.add("test"); //Thêm class
+        // });
+    </script>
+
+    <script>
+        // const box = document.querySelectorAll("h2")
+        // console.log(box);
+    </script>
+    <!-- Ennd DOM Element -->
+
+    <!-- DOM HTML -->
+    1. Lấy nội dung trong thẻ HTML 
+    - Để lấy nội dung của một element ta dùng innerHTML: 
+	    <p>Nội dung hiện tại</p>
+	    <!-- document.querySelector("h2").innerHTML; -->
+    - Để thay đổi nội dung của một element ta dùng innerHTML và gán lại giá trị: 
+	    <!-- document.querySelector("h2").innerHTML = "Nội dung mới"; -->
+    <script>
+        // const p = document.querySelector("p").innerHTML; //Lấy ND 
+        // console.log(p);
+        // const n = document.querySelector("p").innerHTML = "Nội dung update"; //Thay đổi ND
+        // console.log(n);
+    </script>
+
+    2.  Thay đổi thuộc tính thẻ HTML 
+    - Để lấy giá trị của thuộc tính HTML ta sử dụng cú pháp sau: 
+	    <h2>Nội dung hiện tại</h2>
+	    <!-- document.querySelector("h2").attributeName; -->
+	Hoặc: 
+	    <!-- document.querySelector("h2") .getAttribute("attributeName"); -->
+
+    <div class="product-item" data-id="123476" data-category="123">
+        Ảnh
+        Tiêu đề
+        Giá
+    </div>
+    <div class="product-item" data-id="fdregr" data-category="123">
+        Ảnh
+        Tiêu đề
+        Giá
+    </div>
+
+    <script>
+        // const productList = document.querySelectorAll(".product-item");
+
+        // let card = [];
+        
+        // [...productList].forEach(item => {
+        //     const dataId = item.getAttribute("data-id"); // Lấy thuộc tính
+        //     card.push(dataId);
+
+        //     item.setAttribute("data-category", "234"); //Thay đổi thuộc tính
+        //     item.setAttribute("class", "product-item product-test");
+        // });
+        // console.log(card);
+    </script>
+
+    - Để thay đổi giá trị của thuộc tính HTML thì ta sử dụng cú pháp như sau: 
+	    <!-- document.querySelector("h2"). attributeName = "Nội dung mới"; -->
+	Hoặc: 
+	    <!-- document.querySelector("h2"). setAttribute("attributeName", "Nội dung mới"); -->
+    <!-- End DOM HTML -->
+
+    <!-- DOM CSS -->
+    - Cú pháp thiết lập giá trị: 
+	    <!-- document.getElementById("idName").style.propertyName = 'value'; -->
+    - Cú pháp lấy giá trị: 
+	    <!-- document.getElementById("idName").style.propertyName; -->
+    - Trường hợp thuộc tính có dấu gạch ngang như: font-size, line-height,
+    margin-bottom thì thì nó sẽ có tên là fontSize, lineHeight, marginBottom
+
+    <h3 id="h3">Nội dung thẻ h3</h3>
+
+    <script>
+        // const h3 = document.querySelector("#h3");
+        // h3.style.color = "red";
+        // h3.style.backgroundColor = "yellow";
+        // console.log(h3);
+    </script>
+    <!-- End DOM CSS -->
+</body>
+</html>

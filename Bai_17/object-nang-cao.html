@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object-nang-cao</title>
+</head>
+<body>
+    <!-- Cách thêm 1 key mới vào object
+    - Cú pháp:
+        tenObject.tenKey = value;
+    - Hoặc:
+        tenObject["tenKey"] = value;
+    -->
+
+    <!-- Cách xóa 1 key khỏi object
+    - Cú pháp:
+        delete tenObject.tenKey;
+    -->
+    <script>
+
+        let infoUser = {
+            fullName: "Nguyễn Quang Thỏa",
+            email: "quangthoa11122001@gmail.com"
+        };
+
+        infoUser.phone = "0916595807";
+        infoUser["address"] = "số 3, ngõ 21, Đắc Sở";
+
+        console.log(infoUser);
+        console.log(infoUser["address"]);
+
+        delete infoUser.email;
+
+    </script>
+
+</body>
+</html>

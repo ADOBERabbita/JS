@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strict Mode</title>
+</head>
+<body>
+    1. Strict mode là gì?
+    - Strict mode là chế độ code nghiêm ngặt, nó bắt buộc lập trình viên phải tuân thủ theo 
+    quy tắc mà javascript đưa ra. Các lỗi cơ bản thường gặp như khai báo trùng tên biến và 
+    trùng tên hàm, sử dụng biến mà chưa được định nghĩa.
+    - Để sử dụng strict mode ta khai báo "use strict"; ở trước vị trí mà ta muốn sử dụng.
+
+    2. Có 2 kiểu Strict Mode
+    - Strict mode toàn cục: Khai báo bên ngoài cùng.
+    - Strict mode cục bộ: Khai báo bên trong một hàm.
+
+    <script>
+
+        // "use strict" //Strict Mode toàn cục
+
+        b = 30;
+        console.log(b);
+
+        function test() {
+            "use strict"; //Strict Mode cục bộ
+
+            c = 20;
+            console.log(c);
+        }
+
+        test();
+
+    </script>
+
+</body>
+</html>

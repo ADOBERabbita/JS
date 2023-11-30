@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1. document.createElement()
+    - Tạo một Node mới hoàn toàn và không liên quan tới những thẻ HTML đang hiển thị trên website.
+    - Cú pháp:
+	    var tenBien = document.createElement(“tagName");
+    - Trong đó:
+        tagName: là tên thẻ. Ví dụ: p, h1, div,…
+
+    <div id="ads"></div>
+
+    <script>
+
+        // const div = document.createElement("div");
+        // div.innerHTML = "Quảng cáo..."
+        // console.log(div);
+
+        // setInterval(() => {
+        //     const divads = document.querySelector("#ads");
+        //     divads.appendChild(div);
+        // }, 3000);
+
+    </script>
+
+    2. document.createTextNode()
+    - Text node là một node đặc biệt, nó không phải là một thẻ HTML thông thường mà chỉ là một chuỗi (string).
+    - Cú pháp:
+	    var tenBien = document.createTextNode("Nội dung…");
+
+    <script>
+
+        // const div = document.createElement("div");
+        // const text = document.createTextNode("Quảng cáo 2...")
+        // div.appendChild(text);
+        // console.log(div);
+
+        // const divads = document.querySelector("#ads");
+        // divads.appendChild(div);
+
+    </script>
+
+    3. Phương thức appendChild()
+    - Dùng để thêm (bổ sung) vào vị trí cuối cùng của đối tượng một thẻ HTML nào đó.
+    - Cú pháp:
+	    element_parent.appendChild(node_insert);
+    - Trong đó:
+        + element_parent: là element cha.
+        + node_insert: là node bạn muốn thêm vào.
+
+    <ul id="menu">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+
+    <button id="buttonAdd">Thêm mới</button>
+
+    <script>
+
+        // const menu = document.querySelector("#menu");
+        // const buttonAdd = document.querySelector("#buttonAdd");
+
+        // buttonAdd.onclick = function() {
+        //     const newItem = document.createElement("li");
+        //     newItem.innerHTML = "Item mới";
+        //     menu.appendChild(newItem);
+        // }
+
+    </script>
+
+    4. Phương thức insertBefore()
+    - Được dùng để thêm một Node vào đằng trước một node con nào đó.
+    - Cú pháp:
+	    element_parent.insertBefore(node_insert, node_child);
+    - Trong đó:
+        element_parent: là element cha.
+        node_insert: là node bạn muốn thêm vào.
+        node_child: là node con mà bạn muốn them node_insert vào đằng trước nó.
+
+    <script>
+
+        // const menu = document.querySelector("#menu");
+        // const buttonAdd = document.querySelector("#buttonAdd");
+
+        // buttonAdd.onclick = function() {
+        //     const firstElement = menu.firstElementChild;
+
+        //     const newItem = document.createElement("li");
+        //     newItem.innerHTML = "Item mới";
+        //     menu.insertBefore(newItem, firstElement);
+        // }
+
+    </script>
+
+    5. Phương thức removeChild()
+    - Được dùng để xóa một node con ra khỏi node hiện tại.
+    - Cú pháp:
+	    element_parent.removeChild(node_remove);
+    - Trong đó:
+        + element_parent: là element cha.
+        + node_remove: là node cần xóa.
+
+    <script>
+
+        // const menu = document.querySelector("#menu");
+        // const buttonAdd = document.querySelector("#buttonAdd");
+
+        // buttonAdd.onclick = function() {
+        //     const firstElement = menu.firstElementChild;
+
+        //     const newItem = document.createElement("li");
+        //     newItem.innerHTML = "Item mới";
+        // } 
+
+        // const listItem = menu.querySelectorAll("li");
+
+        // listItem.forEach(item => {
+        //     item.onclick = function() {
+        //         menu.removeChild(item);
+        //     }
+        // })
+
+    </script>
+
+    6. Phương thức replaceChild()
+    - Dùng để replace (thay thế) một node con nào đó bằng một node khác mới hoàn toàn.
+    - Cú pháp:
+	    element_parent.replaceChild(node_insert, node_remove);
+    - Trong đó:
+        + element_parent: là element cha.
+        + node_insert: là element mới muốn thay thế.
+        + node_remove: là element cũ muốn bỏ đi.
+
+    <script>
+
+        // const menu = document.querySelector("#menu");
+        // const buttonAdd = document.querySelector("#buttonAdd");
+
+        // buttonAdd.onclick = function() {
+        //     const firstElement = menu.firstElementChild;
+
+        //     const newItem = document.createElement("li");
+        //     newItem.innerHTML = "Item mới";
+        // } 
+
+        // const listItem = menu.querySelectorAll("li");
+
+        // listItem.forEach(item => {
+        //     item.onclick = function() {
+        //         const newItem = document.createElement("li");
+        //         newItem.innerHTML = "New Item";
+
+        //         menu.replaceChild(newItem, item);
+        //     }
+        // })
+
+    </script>
+
+</body>
+</html>

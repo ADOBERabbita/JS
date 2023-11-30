@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    - Là một tác động nào đó lên các đối tượng HTML. Qua đó ta có thể bắt đc sự kiện và viết một đoạn JS
+    để thực thi một chương trình nào đó.
+    - Cú pháp:
+        element.eventname = funcion() {
+            // Code
+        }
+    - Tong đó:
+        + element: là phần tử muốn bắt sự kiện
+        + eventname: tên sự kiện
+    - Một số DOM Events phổ biến:
+        + onload   : khi trình duyệt đã load xong mọi thứ thì những đoạn code nằm bên trong đó mưới đc chạy
+        + onblur   : kích hoạt khi 1 phần tử mất trọng tâm (ko đc focus vào nữa)
+        + onfocus  : kích hoạt khi 1 phần tử đúng tọng tâm (đc focus vào)
+        + onkeydown: kích hoạt khi 1 phím đc nhấn
+        + onkeyup  : kích hoạt khi 1 phím đc nhả ra
+        + onclick  : kích hoạt trên con chuột vừa nhấn vào phần tử
+        + onchange : kích hoạt khi gtri đc thay đổi khác đi so với gtri trước đó
+    
+    <!-- onload -->
+    <script>
+
+        window.onload = function() {
+            const menu = document.querySelector("#menu");
+            console.log(menu);
+        };
+
+    </script>
+
+    <ul id="menu">
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+        <li>Mục 3</li>
+    </ul>
+    <!-- End onload -->
+
+    <!-- onblur, onfocus, onkeydown and onkeyup -->
+    <input type="text" id="inputName" placeholder="Nhập họ tên">
+
+    <style>
+        .focus {
+            background: yellow;
+        }
+    </style>
+
+    <script>
+
+        const inputName = document.querySelector("#inputName");
+        inputName.onblur = function() {
+            inputName.value = inputName.value.toUpperCase();
+            inputName.classList.remove("focus");
+        };
+
+        inputName.onfocus = function() {
+            inputName.classList.add("focus");
+        };
+
+        inputName.onkeydown = function() {
+            console.log("onkeydown");
+            alert("onkeydown");
+        };
+
+        inputName.onkeyup = function() {
+            console.log("onkeyup");
+            alert("onkeyup")
+        };
+
+        inputName.onchange = function() {
+            console.log(inputName.value);
+        };
+
+    </script>
+    <!-- End onblur, onfocus, onkeydown and onkeyup -->
+
+    <!-- onclick -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        .menu-new {
+            background: orange;
+            width: 250px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            display: none;
+        }
+        .menu-new.show {
+            display: block;
+        }
+        .menu-new ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 30px;
+        }
+        .menu-new ul li {
+            padding: 10px;
+            border-bottom: 1px solid #0000002d;
+        }
+        .button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-new .inner-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+
+    <div class="menu-new" id="menuNew">
+        <button class="inner-close" id="buttonClose">Đóng</button>
+        <ul>
+            <li>Mục 1</li>
+            <li>Mục 2</li>
+            <li>Mục 3</li>
+        </ul>
+    </div>
+
+    <button class="button" id="buttonMenu">
+        Menu
+    </button>
+
+    <script>
+
+        const buttonMenu = document.querySelector("#buttonMenu");
+        const buttonClose = document.querySelector("#buttonClose");
+        const menuNew = document.querySelector("#menuNew");
+
+        buttonMenu.onclick = function() {
+            menuNew.classList.add("show");
+        };
+        buttonClose.onclick = function() {
+            menuNew.classList.remove("show");
+        };
+
+    </script>
+    <!-- End onclick -->
+
+    <!-- onchange -->
+    <select name="" id="colors">
+        <option value="red">Màu đỏ</option>
+        <option value="yellow">Màu vàng</option>
+        <option value="black">Màu đen</option>
+    </select>
+
+    <script>
+
+        const colors = document.querySelector("#colors");
+
+        colors.onchange = function() {
+            let currentColor = colors.value;
+            console.log(currentColor);
+        };
+
+    </script>
+    <!-- End onchange -->
+
+</body>
+</html>

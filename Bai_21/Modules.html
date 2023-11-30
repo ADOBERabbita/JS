@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+</head>
+<body>
+    1. Module trong Javascript là gì?
+    - Một module là một file javascript bình thường, chỉ đơn giản là file đó sẽ đặt một cái tên 
+    có ý nghĩa, và các dòng code bên trong cũng phục vụ cho cái tên ý nghĩa đó.
+    - Ví dụ: chúng ta tạo ra một file có tên là sum.js thì file này sẽ chứa hàm tính tổng.
+    - Việc phân chia thành từng module (tức là từng file) và mỗi module có một công dụng giúp 
+    cho quá trình code nhanh hơn, mạch lạc hơn, tái sử dụng ở nhiều nơi.
+
+    2. Khai báo module trong Javascript
+    - Để khai báo module dùng từ khóa export.
+    - Để sử dụng module dung từ khóa import.
+    - Trong đó:
+        + Sử dụng lệnh export
+            * Để đặt đằng trước hàm hoặc biến cho phép file khác sử dụng.
+            * Cú pháp: export function tenHam() { // Code };
+        + Sử dụng lệnh import
+            * Để gọi đến dữ liệu từ một module khác.
+            * Cú pháp: import { tenHam } from "duong_dan_file.js";
+    <script type="module" src=".//main.js"></script>
+
+    3. Đổi tên dữ liệu của module trong javascript
+    - Có một số trường hợp bạn phải đổi tên module:
+        + Muốn rút gọn tên cho đỡ dài
+        + Trong trường hợp source code của bạn đã tồn tại tên đó, thì phải thay đổi tên để tránh bị trùng tên.
+    - Cách 1: Đổi tên trong file module
+	    + export { oldName as newName };
+	    + import {newName } from 'duong_dan_file.js';
+    - Cách 2: Đổi tên trong file import
+	    + import {oldName as newName } from ''duong_dan_file.js';
+
+    4. Default export module trong javascript
+    - Default export là cách khai báo một dữ liệu export mặc định, trong trường hợp gọi đến một hàm hoặc một biến mà không tồn tại trong module thì module sẽ trả về dữ liệu default này.
+    - Cú pháp
+        + export default function tenHam() { // Code };
+        + import tenHam from 'duong_dan_file.js';
+
+</body>
+</html>

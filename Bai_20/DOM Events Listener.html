@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    - Giống DOM Events, nhưng khác ở chỗ:
+        + Một element có thể gọi được nhiều sự kiện
+        + Có thể hủy bỏ lắng nghe sự kiện bất kỳ
+    - Cú pháp:
+        element.addEventListener("eventname", function(e) {
+            //Code
+        });
+    - Trong đó:
+        + element: là phần tử muốn bắt sự kiện
+        + eventname: tên sự kiện (bỏ chữ on, ví dụ: onclick->click)
+    
+    <button id="button">Button</button>
+
+    <script>
+
+        function hamMot() {
+            console.log('Việc 1');
+        }
+        function hamHai() {
+            console.log('Việc 2');
+        }
+
+        const button = document.querySelector("#button");
+
+        button.addEventListener("click", hamMot);
+
+        button.addEventListener("click", hamHai);
+        
+        setTimeout(() => {
+            button.removeEventListener("click", hamHai);
+        }, 5000);
+
+    </script>
+</body>
+</html>

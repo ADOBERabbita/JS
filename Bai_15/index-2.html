@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+
+    <script>
+        var a = 50;
+        var b = 30;
+        var d = 20;
+        var c = a + b + d;
+        console.log(c);
+
+         var fullname = "Nguyễn Quang Thỏa";
+         console.log(fullname)
+
+        // Toán tử số học
+        var a = 10;
+        var b = 20;
+        var d = "20";
+
+        var c = a + b;
+        console.log(c);
+
+        var e = a - b;
+        console.log(e);
+
+        var f = a * b;
+        console.log(f);
+
+        var g = a / b;
+        console.log(g);
+
+        var h = a % b;
+        console.log(h);
+
+        var i = a ** b;
+        console.log(i);
+        
+        var a = 10;
+        var b = ++a;
+        var c = a++ + ++a + a++ + ++a;
+
+        console.log(b)
+        console.log(c)
+
+        var a = 10;
+        var b = --a;
+        var c = a-- - --a - a-- - --a;
+
+        console.log(b);
+        console.log(c);
+
+        var a = 10;
+        var b = 20;
+        var c = a++ + ++a - b-- - --b + a-- + --a - b++ - ++b;
+
+        console.log(c);
+        // End Toán tử số học
+
+        // Toán tử gán
+        var fullname = "Rabbita"
+        var b = "quangthoa";
+        b = fullname;
+
+        console.log(b);
+
+        var c = 20;
+        var d = 10;
+        var e = 30;
+        var f = 40;
+        var g = 50;
+        var h = 60;
+
+        d += c; // d = d + c
+        console.log(d);
+        
+        e -= c; // e = e - c
+        console.log(e);
+ 
+        f *= c; // f = f * c
+        console.log(f);
+
+        g /= c; //g = g / c
+        console.log(g);
+
+        h %= c; // h = h % c
+        console.log(h);
+        // End Toán tử gán
+
+        // Toán tử so sánh
+        var a = 10;
+        var b = 11;
+
+        if(a > b) {
+            console.log("a lớn hơn b");
+        } else {
+            console.log("a nhỏ hơn b");
+        }
+
+        if(a < b) {
+            console.log("a nhỏ hơn b");
+        } else {
+            console.log("a lớn hơn b");
+        }
+
+        if(a >= b) {
+            console.log("a lớn hơn hoặc bằng b");
+        } else {
+            console.log("a nhỏ hơn hoặc bằng b");
+        }
+
+        if(a <= b) {
+            console.log("a nhỏ hơn hoặc bằng b");
+        } else {
+            console.log("a lớn hơn hoặc bằng b");
+        }
+
+        if(a == b) {
+            console.log("a bằng b");
+        } else {
+            console.log("a khác b");
+        }
+
+        if(a === b) { //so sánh cùng kiểu giữ liệu
+            console.log("a bằng b");
+        } else {
+            console.log("a khác b");
+        }
+
+        if(a != b) {
+            console.log("a khác b");
+        } else {
+            console.log("a bằng b");
+        }
+
+        if(a !== b) { //so sánh cùng kiểu giữ liệu
+            console.log("a khác b");
+        } else {
+            console.log("a bằng b");
+        }
+        // End Toán tử so sánh
+
+        // Toán tử logic
+        var a = 10;
+        var b = 10;
+        var c = 30;
+
+        if(a == b && b == c) { //trả về kết quả là true khi cả hai toán hạng đều true
+            console.log("a = b = c")
+        } else {
+            console.log("khác nhau");
+        }
+
+        if(a == b || b == c) { //trả về kết quả là true khi 1 trong 2 toán hạng là true
+            console.log("a = b = c")
+        } else {
+            console.log("khác nhau");
+        }
+
+        var e = true;
+        var f = false;
+
+        console.log(!e); //chuyển đổi gtri của toán hạng từ true sang false và ngược lại
+        console.log(!f);
+        // End Toán tử logic
+    </script>
+
+</body>
+</html>

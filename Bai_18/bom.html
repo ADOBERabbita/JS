@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bom</title>
+</head>
+<body>
+    <!-- Khái niệm -->
+    - MOM là chữ viết tắt của Browser Oblect Model, hay còn gọi là các đối tượng liên quan đến trình duyệt
+    - Các BOM giúp ta biết đc lịch sử lướt web, lưu các hành động và trạng thái của người dùng trên mạng
+    - Các loại BOM:
+        + window
+        + screen
+        + location
+        + history
+        + navigator
+        + popup
+        + timing
+        + cookies
+    <!-- End khái niệm -->
+
+    <!-- BOM Window -->
+    1. Khái niệm
+    - window là 1 đối tượng có những phương thức và thuộc tính đc dùng để xử lý trình duyệt
+    - window có cấp độ cao nhất
+
+    2. innerHeight và innerWidth
+    - innerHeight để lấy kích thước chiều cao của tài liệu
+    - innerWidth để lấy kích thước chiều rộng của tài liệu
+    - Cú pháp: 
+        <!-- <script>
+            console.log(window.innerHeight);
+            console.log(window.innerWidth);
+        </script> -->
+    
+    3. window.open()
+    - Để mở 1 cửa sổ mới
+    - Cú pháp:
+        <!-- <script>
+            console.log(window.open("url", "name", "options"));
+        </script> -->
+    - Trong đó:
+        + url: là đường dẫn website bạn muốn mở
+        + name: là tên bạn đặt cho cửa sổ này
+        + options: là 1 chuỗi các thông số đc cách nhau bởi dấu ","
+        sau đây là các thông số thông dụng:
+            ~ height: chiều cao của cửa sổ, đơn vị pixel
+            ~ width: chiều rộng của cửa sổ, đơn vị là pixel
+            ~ top: vị trí hiển thị cửa sổ so với lề trên, đơn vị pixel
+            ~ left: vị trị hiển thị cửa sổ so với lề trái, đơn vị pixel
+    
+    4. window.close()
+    - Để đóng cửa sổ mà ta đã dùng lệnh open() để mở
+    - Cú pháp:
+
+    - Ví dụ mở đóng cửa sổ:
+    <button onclick="openTab()">Mở tab mới</button>
+    <button onclick="closeTab()">Đóng tab</button>
+
+    <!-- <script>
+
+        let tab;
+
+        function openTab() {
+            tab = window.open("https://www.facebook.com/", "_blank", "width=1200, height=600, top=200, left=300");
+        }
+
+        function closeTab() {
+            tab.close();
+        }
+    </script> -->
+
+    5. window.location.href
+    - Để lấy đường dẫn hiện tại của trang web
+    - Cú pháp:
+        <!-- window.location.href; -->
+    <!-- <script>
+        let href = window.location.href;
+
+        setTimeout(() => {
+            console.log(href);
+        }, 4000);
+    </script> -->
+    <!-- End BOM Window -->
+
+    <!-- BOM Screen -->
+    1. screen.width và screen.height 
+    - screen.width để lấy chiều rộng màn hình máy tính (không phải chiều rộng của màn hình trình duyệt)
+    - screen.height để lấy chiều cao màn hình máy tính (không phải chiều cao của màn hình trình duyệt)
+    <!-- <script>
+        let screenWidth = window.screen.width;
+        let screenHeight = window.screen.height;
+
+        setTimeout(() => {
+            console.log(screenWidth);
+            console.log(screenHeight);
+        }, 5000);
+    </script> -->
+    <!-- End BOM Screen -->
+
+    <!-- BOM Location -->
+    1. Khái niệm
+    - location là một đối tượng được dùng để xử lý các vấn đề liên quan đến URL của trang web
+    - Cú pháp:
+        window.location hoặc location
+    <!-- <script>
+        console.log(window.location);
+    </script> -->
+
+    2. reload()
+    - Để load lại trang web
+    - Cú pháp:
+        location.reload()
+    <!-- <button onclick="reloadWeb">Reload</button>
+    <script>
+        function reloadWeb() {
+            window.location.reload();
+        };
+
+        // setInterval(() => {
+        //     window.location.reload();
+        // }, 500);
+    </script> -->
+
+    3. Các thuộc tính
+    - hash: lấy phần sau dấu # của URL
+    - host: lấy hostname và port của URL
+    - hostname: lấy hostname
+    - href: lấy URL
+    - origin: trả về protocol, hostname và port của URL
+    - pathname: lấy path name của URL
+    - port: lấy port của URL
+    - search: lấy phần query string của URL (sau dấu ?)
+    <!-- End BOM Location -->
+
+    <!-- BOM History -->
+    1. Khái niệm
+    - history dùng để quản lý lịch sử lướt web.
+    - Khi bạn lướt web thì trình duyệt sẽ lưu lại lịch sử lướt web của bạn. Dựa vào lịch sử đó, ta có thể xem lại những ngày trước đã xem những gì, truy cập vào những trang nào.
+    - Cú pháp: 
+        <!-- window.history hoặc history -->
+    
+    2. Xem lịch sử duyệt web
+    - history.length: đếm tổng số trang đã lưu trong history
+    - history.back(): trở lại trang trước
+    - history.forward(): đi tới trang kế tiếp
+    - history.go(number): đi tới một trang:
+        + nếu number âm thì tính từ trang hiện tại trừ đi number
+        + nếu number dương thì tính từ trang hiện tại cộng với number
+    <!-- End BOM History -->
+
+    <!-- BOM Navigator -->
+    1. Khái niệm
+    - navigator được dùng để kiểm tra các thông tin về người dùng như trình duyệt đang sử dụng là gì? hệ điều hành đang sử dụng là gì? Trình duyệt có bật cookie hay không? có thể kiểm tra được tên và phiên bản của trình duyệt.
+    - Cú pháp: 
+        <!-- window.navigator hoặc navigator -->
+    
+    2. Một số thuộc tính chính
+    - navigator.cookieEnabled: Để kiểm tra trình duyệt có bật Cookie hay không.
+    - navigator.appName: Để kiểm tra tên trình duyệt.
+    - navigator.appCodeName: Để kiểm tra tên mã code của trình duyệt.
+    - navigator.appVersion: Để kiểm tra Version của trình duyệt.
+    - navigator.platform: Xem hệ điều hành mà người dùng đang sử dụng.
+    - navigator.language: Để kiểm tra ngôn ngữ của trình duyệt
+    <!-- End BOM Navigator -->
+
+    <!-- BOM Popup -->
+    - alert("Nội dung");
+    - confirm("Nội dung");
+    - prompt("Nội dung","Nội dung mặc định");
+    <!-- End BOM Popup -->
+
+    <!-- BOM Timing -->
+    - setTimeout(function, milliseconds)
+    - setInterval(function, milliseconds)
+    <!-- End BOM Timing -->
+
+    <!-- Cookies -->
+    1. Khái niệm
+    - Cookie là dữ liệu được lưu trữ trong một file text, và nằm trong máy tính, nên việc lưu trữ cookie sẽ là vĩnh viễn hoặc là một thời gian cụ thể, tất cả đều do bạn thiết lập.
+    - Khi trình duyệt gửi thông tin lên server thì cookies sẽ được gửi kèm theo. Đây cũng là thông tin để trả lời cho câu hỏi tạo sao Cookie được lưu trữ ở Client mà trên Server vẫn đọc được.
+    - Cookie được lưu trữ ở dạng: 
+        name=value
+
+    2. Các thao tác với cookie
+    - Tạo cookie
+        + Cú pháp: 
+            <!-- document.cookie = 'name=value'; -->
+        + Để thiết lập thời gian sống cho cookie thì ta sử dụng từ khóa expires. Định dạng thời gian là UTC.
+    
+    <button onclick="login()">Đăng nhập</button>
+    <button onclick="updateInfo()">Cập nhật thông tin</button>
+    <button onclick="deleteInfo()">Xóa thông tin</button>
+
+    <script>
+
+        // Tạo cookie
+        function setCookie(cname, cvalue, exday) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exday * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires;
+        }
+
+        // Lấy từng giá trị cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Xóa Cookie
+        function deleteCookie(cname) {
+            document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+        }
+
+        function login() { //Tạo Cookie
+            if(true) {
+                setCookie("token", "kfdafheifhihifieHIFhe", 1);
+                setCookie("email", "thoa123@gmail.com", 1);
+                setCookie("fullname", "nguyenquangthoa", 1);
+
+            }
+        }
+
+        let allCookie = document.cookie; //Lấy gtri cookie
+        console.log(allCookie);
+        let email = getCookie("email"); //Lấy từng gtri cookie
+        let token = getCookie("token");
+        console.log(email);
+        console.log(token);
+
+        function updateInfo() { //Đổi gtri cookie
+            document.cookie = 'email=test@gmail.com'; 
+        }
+
+        function deleteInfo() { //Xóa Cookie
+            deleteCookie("token");
+            deleteCookie("email");
+            deleteCookie("fullname");
+        }
+        
+    </script>
+        
+    - Lấy giá trị cookie
+        + Cú pháp: 
+            <!-- var giatri = document.cookie; -->
+        + Lúc này kết quả sẽ trả về một chuỗi Cookie có cấu trúc name=value, trường hợp bạn lưu nhiều cookie thì nó sẽ có dạng name1=value1;name2=value2.
+    - Đổi giá trị cookie
+        + Để thay đổi giá trị cho Cookie thì bạn chỉ việc gán lại giá trị cho cookie. Không sinh ra cookie mới mà sẽ ghi đè lên cookie cũ.
+        + Cú pháp: 
+            <!-- document.cookie = 'name=value'; -->
+    - Xóa cookie
+        + Chỉ cần xét lại giá trị ngày hết hạn expires về những thời gian trước đấy.
+        + Cú pháp: 
+            <!-- document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC"; -->
+    <!-- End Cookies -->
+
+</body>
+</html>

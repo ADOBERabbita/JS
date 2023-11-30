@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    - Dùng để quản lý, thao tác với các thẻ HTML, thể hiện mối quan hệ cha – con của các thẻ HTML.
+    - Các thuộc tính:
+        + parentNode            : dùng để truy cập nút cha của nút được chỉ định trong cây DOM
+        + childNodes            : truy cập tất cả các node con của một phần tử nhất định. Node con có thể là một văn bản, chú thích,…
+        + firstElementChild     : trả về phần tử là node con đầu tiên của phần tử cha.
+        + lastElementChild      : trả về phần tử là node con cuối cùng của phần tử cha.
+        + nextElementSibling    : trả về phần tử là node kế tiếp.
+        + previousElementSibling: trả về phần tử là node trước đó.
+        + nodeName              : Trả về tên một node.
+
+    <div class="parent">
+        <div class="child-1" id="child-1">
+            <div class="box">Box 1</div>
+            <div class="box">Box 2</div>
+            <div class="box">Box 3</div>
+        </div>
+        <div class="child-2">Child 2</div>
+        <div class="child-3">Child 3</div>
+    </div>
+
+    <script>
+
+        const childOne = document.querySelector("#child-1");
+        console.log(childOne);
+        console.log(childOne.parentNode);
+        console.log(childOne.childNodes);
+        console.log(childOne.querySelectorAll(".box"));
+        console.log(childOne.firstElementChild);
+        console.log(childOne.lastElementChild);
+        console.log(childOne.nextElementSibling);
+        console.log(childOne.previousElementSibling);
+        console.log(childOne.nodeName);
+
+        const parent = document.querySelector(".parent");
+        console.log(parent.querySelectorAll(".box"));
+
+    </script>
+
+</body>
+</html>

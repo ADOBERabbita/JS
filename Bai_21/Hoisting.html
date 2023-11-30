@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    1. Biến trong hoisting
+    - Hoisting nghĩa là có thể sử dụng 1 biến xong sau đó mới cần khai báo biến đó.
+    - Javascript sẽ di chuyển toàn bộ các khai báo biến lên đầu chương trình. 
+    Vì vậy, những dòng code có sử dụng biến mà chưa khai báo sẽ không bị lỗi.
+
+    <script>
+
+        // var a = 10;
+        // console.log(a);
+
+    </script>
+
+    2. Từ khóa let, const và var trong hoisting
+    - Sử dụng var:  Nếu biến chưa gán giá trị thì sẽ trả về undefined.
+    - Sử dụng let và const: Nếu biến chưa gán giá trị thì sẽ xuất hiện 
+    thông báo lỗi 'a is not defined'. Lỗi này muốn nói rằng biến a chưa được định nghĩa.
+
+    3. Hàm trong hoisting
+    - Declaration Function
+        + Có tính hosting
+        + Cú pháp: function tenHam() { // Code }
+    <script>
+        // let a = 10;
+        // let b = 20;
+
+        // let c = sum(a, b);
+
+        // console.log(c);
+        // function sum(x, y) {
+        //     return(x + y);
+        // }
+    </script>
+
+    - Expression Function
+        + Không có tính hosting
+        + Cú pháp: var tenBien = function() { // Code }
+    <script>
+        // let a = 10;
+        // let b = 20;
+
+        // let c = sum(a, b);
+
+        // console.log(c);
+        
+        // var sum = (x, y) => {
+        //     return(x + y);
+        // }
+    </script>
+
+    - Arrow Function
+        + Không có tính hosting
+        + Cú pháp: var tenBien = () => { // Code }
+    
+</body>
+</html>

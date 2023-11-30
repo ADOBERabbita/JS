@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array-nang-cao</title>
+</head>
+<body>
+    <!-- forEach -->
+    - Để duyệt qua mỗi phần tử của mảng và thực hiện 1 hành động nào đó
+    - Có thể thay đổi trực tiếp mảng ban đầu
+    - Cú pháp:
+        arr.forEach(
+            function(currentValue, index, array) {
+                //code xử lý
+            });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm forEach()
+
+    <script>
+
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let tong = 0;
+
+        numbers.forEach(function(item, index, array) {
+            tong += item;
+            numbers[index] = 20;
+        });
+
+        console.log(tong);
+
+        console.log(numbers);
+
+    </script>
+    <!-- End forEach -->
+
+    <!-- every() -->
+    - Kiểm tra tất cả các phần tử của 1 mảng phải thỏa mãn 1 điều kiện gì đó
+    - Cú pháp:
+        arr.every(function(currentValue, index, array) {
+            //code xử lý
+        });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm every()
+
+    <script>
+
+        const monHoc = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+    ]
+
+    const hocSinhGioi = monHoc.every(function(item, index, array) {
+        return item.diem >= 8;
+    });
+
+    if(hocSinhGioi == true)  {
+        console.log("Đây là học sinh giỏi");
+    } else {
+        console.log("Đây không phải học sinh giỏi");
+    }
+
+    </script>
+    <!-- End every() -->
+
+    <!-- some() -->
+    - Kiểm tra chỉ cần 1 phần tử của 1 mảng thỏa mãn 1 điều kiện gì đó là được
+    - Cú pháp:
+        arr.some(function(currentValue, index, array) {
+            //code xử lý
+        });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm some()
+
+    <script>
+        const monHoc2 = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+    ]
+    
+        const oLaiLop = monHoc2.some(function(item, index, array) {
+        return item.diem < 4;
+    });
+
+    if(oLaiLop == true)  {
+        console.log("Ở lại lớp");
+    } else {
+        console.log("Lên lớp");
+    }
+    </script>
+    <!-- End some() -->
+
+    <!-- find() -->
+    - Tìm xem trong mảng có gtri giống với gtri đang cần tìm ko, nếu có
+    thì trả về chính phần tử của mảng đó. Nếu ko có thì trả về undefined
+    - Chỉ tìm đc 1 phần tử trong mảng
+    - Cú pháp:
+        arr.find(function(currentValue, index, array) {
+            //code xử lý
+        });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm find()
+    
+    <script>
+        const monHoc3 = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+    ]
+    
+    const xemDiemTin = monHoc3.find(function(item, index, array) {
+        return item.ten == "Tin";
+    });
+
+    if(xemDiemTin)  {
+        console.log("Điểm Tin của bạn là:", xemDiemTin.diem);
+    } else {
+        console.log("Không tìm thấy môn học");
+    }
+    </script>
+    <!-- End find() -->
+
+    <!-- filter() -->
+    - Giống find(), nhưng cho phép tìm đc nhiều phần tử và trả về 1 array gồm
+    các phần tử đâ tìm được
+    - Cú pháp:
+        arr.filter(function(currentValue, index, array) {
+            //code xử lý
+        });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm filter()
+    
+    <script>
+        const monHoc4 = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+        {
+            ten: "Tin",
+            diem: 9
+        },
+    ]
+    
+    const locDiemTin = monHoc4.filter(function(item, index, array) {
+        return item.ten == "Tin";
+    });
+
+    if(locDiemTin)  {
+        console.log("Điểm Tin của bạn là:", locDiemTin);
+    } else {
+        console.log("Không tìm thấy môn học");
+    }
+    </script>
+    <!-- End filter() -->
+
+    <!-- map() -->
+    - Hàm map() sẽ lặp qua từng phần tử của mảng. Gtri trả về của hàm map()
+    là 1 mảng mới, với số lượng phần tử bằng với mảng cũ, nhưng gtri của các
+    phần tử thì đc quyết định bởi lệnh return của hàm map()
+    - Cú pháp:
+        arr.map(function(currentValue, index, array) {
+            //code xử lý
+        });
+    - Trong đó:
+        + currentValue: phần tử hiện tại đang đc xử lý của array
+        + index: chỉ số của phần tử hiện tại đang đc xử lý của array
+        + array: mảng hiện tại đang gọi hàm map()
+
+    <script>
+
+        let numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        let ketQua = numbers2.map((item, index, array) => {
+            return item;
+        });
+
+        console.log(ketQua);
+
+    </script>
+
+    <script>
+        const monHoc5 = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+    ];
+
+    let danhSachMoi = monHoc5.map(item => {
+        let hocLuc = "";
+        if(item.diem >= 8) {
+            hocLuc = "Giỏi";
+        } else if(item.diem < 8 && item.diem >= 6.5) {
+            hocLuc = "Khá";
+        } else {
+            hocLuc = "Trung Bình";
+        }
+
+        return {
+            ten: item.ten,
+            hocLuc: hocLuc
+        };
+    });
+
+    console.log(monHoc5);
+    console.log(danhSachMoi);
+
+    </script>
+    <!-- End map() -->
+
+    <!-- reduce() -->
+    - Hàm reduce() sẽ duyệt qua từng phần tử trong mảng và tính toán các
+    phần tử đó, sau đó trả về một gtri cuối cùng
+    - Cú pháp:
+        arr.reduce(function(total, currentValue, index, array) {
+            //code xử lý
+        }, initialValue);
+    - Trong đó:
+        + total: gtri trả lại trước đó của function, chính là gtri của lệnh
+        return cho mỗi lần lặp
+        + initialValue: tham số ko bắt buộc. Nếu được truyền vào thì initialValue
+        sẽ đc sử dụng làm gtri ban đầu, còn ko thì nó sẽ lấy gtri của phần tử đầu tiên
+    
+    <script>
+
+        let numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        console.log(numbers3);
+
+        let tong3 = numbers3.reduce((total, item) =>{
+            return total + item;
+        }, 0);
+
+        let trungBinh = numbers3.reduce((total, item) =>{
+            return total + item/numbers3.length;
+        }, 0);
+
+        console.log("--------------");
+        console.log("Tổng:", tong3);
+        console.log("Trung bình:", trungBinh);
+
+    </script>
+    
+    <script>
+        const monHoc6 = [
+        {
+            ten: "Toán",
+            diem: 8.6
+        },
+        {
+            ten: "Lý",
+            diem: 9.2
+        },
+        {
+            ten: "Hóa",
+            diem: 8.5
+        },
+        {
+            ten: "Tin",
+            diem: 8.8
+        },
+    ];
+
+    let tong6 = monHoc6.reduce((total, item) => {
+        return total + item.diem;
+    }, 0);
+
+    let trungBinh6 = monHoc6.reduce((total, item) => {
+        return total + item.diem/monHoc6.length;
+    }, 0);
+
+    console.log("Tổng điểm:", tong6);
+    console.log("Điểm trung bình:", trungBinh6);
+    </script>
+    <!-- End reduce() -->
+
+</body>
+</html>
