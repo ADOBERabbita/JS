@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async-await</title>
+</head>
+<body>
+    - Là một tính năng của JS giúp chúng ta làm việc với các hàm bất đồng bộ
+    theo một cách dễ hiểu hơn.
+    - Được xây dựng trên Promise.
+    - Asnyc: khai báo một hàm bất đồng bộ
+        + Tự động biến đổi một hàm thông thường thành một promise
+        + Từ khóa async đc đặt trước một hàm 
+    - Await: tạm dừng việc thực hiện các hàm async 
+        + Khi đc đặt trước một promise, nó sẽ đợi cho đến khi promise kết
+        thúc và trả về kết quả
+        + Await chỉ có thể đc dử dụng bên trong các function async.
+
+    <div class="category" id="category"></div>
+
+    <div class="product-list" id="products"></div>
+
+    <script type="module" src="async-await.js"></script>
+</body>
+</html>

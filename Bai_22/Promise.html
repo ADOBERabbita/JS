@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <script src="promise.js"></script>
+</head>
+<body>
+    - Dùng để giải quyết vấn đề callback hell 
+    - Callback hell: có nhiều hàm lồng nhau gây ra khó chịu. Giả sử để chạy đc hàm b thì hàm a phải thực thi xong,
+    và để chạy hàm c thì hàm b phải thực thi xong.
+    - promise có cách viết đơn giản hơn so với callback hell.
+    - Cú pháp:
+        <!-- 
+        var promise = new Promise((resolve, reject) => {
+            //resolve(): Nếu thành công chạy vào hàm này
+            //reject(): Nếu thất bại chạy vào hàm này
+        });
+        promise
+            .then((success) => {
+                //Nếu thành công chạy vào đây
+            })
+            .catch((error) => {
+                //Nếu thất bại chạy vào đây
+            })
+            .finally(() => {
+                //Luôn luôn chạy vào đây
+            }) 
+        -->
+    - Trong đó: 
+        + new Promise: tạo mới 1 promise
+        + resolve    : là một hàm callback xử lý cho hành động thành công
+        + reject     : là một hàm callback xử lý cho hành động thất bại
+        + .then      : nếu thành công chạy vào đây
+        + .catch     : nếu thất bại chạy vào đây
+        + .finally   : luôn luôn chạy vào đây
+    - Có 3 trạng thái:
+        + Pending  : khi promise đang chạy thì sẽ ở trạng thái này, kết quả là undefined
+        + Fulfilled: khipomise đã chạy xong thì ở trạng thái này, kết quả là 1 giá trị
+        + Rejecred : khi promise bị lỗi sẽ ở trạng thái này, kết quả là 1 object lỗi
+     
+</body>
+</html>
